@@ -1,0 +1,22 @@
+#!/bin/rc
+
+fn showlocaldev {
+}
+
+fn showlocaldevs{
+	echo 'no local devices (9netboot)'
+}
+
+fn configlocal{
+}
+
+fn bootfs{
+	{$1 -s -f $*(2-) &} <[0=1] | echo 0 >/srv/boot
+}
+
+fn connectlocal{
+	echo 'error: 9netboot is unable to boot local filesystems'
+}
+
+mlocal=(configlocal connectlocal)
+mt=(mlocal $mt)

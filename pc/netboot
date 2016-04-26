@@ -1,0 +1,108 @@
+# 9netboot -- loads kernel off of file server
+dev
+	root
+	cons
+	arch
+	pnp		pci
+	env
+	pipe
+	proc
+	mnt
+	srv
+	shr
+	dup
+	rtc
+	ssl
+	tls
+	cap
+	kprof
+	fs
+
+	ether		netif
+	ip		arp chandial ip ipv6 ipaux iproute netlog nullmedium pktmedium ptclbsum386 inferno
+
+	kbd
+
+	sd
+	floppy		dma
+	aoe
+	lpt
+
+	audio		dma
+	pccard
+	i82365		cis
+	uart
+	usb
+
+link
+	segdesc
+	devpccard
+	devi82365
+	cputemp
+	apm		apmjump
+	ether2000	ether8390
+	ether2114x	pci
+	ether589	etherelnk3
+	ether79c970	pci
+	ether8003	ether8390
+	ether8139	pci
+	ether8169	pci ethermii
+	ether82557	pci
+	ether82563	pci
+	ether82598	pci
+	ether83815	pci
+	etherbcm        pci
+	etherdp83820	pci
+	etherec2t	ether8390
+	etherelnk3	pci
+	etherga620	pci
+	etherigbe	pci ethermii
+	ethervgbe	pci ethermii
+	ethervt6102	pci ethermii
+	ethervt6105m	pci ethermii
+	ethersink
+	ethersmc	devi82365 cis
+	etheryuk	pci
+	etherwavelan	wavelan devi82365 cis pci
+	etheriwl	pci wifi
+	etherwpi	pci wifi
+	etherrt2860	pci wifi
+	ethervirtio	pci
+	ethermedium
+	pcmciamodem
+	netdevmedium
+	loopbackmedium
+	usbuhci
+	usbohci
+	usbehci		usbehcipc
+
+misc
+	archacpi	mp apic squidboy ec
+	archmp		mp apic squidboy
+	mtrr
+	sdloop
+
+	uarti8250
+	uartisa
+	uartpci		pci
+
+ip
+	tcp
+	udp
+	rudp
+	ipifc
+	icmp
+	icmp6
+	gre
+	ipmux
+	esp
+	il
+
+port
+	int cpuserver = 0;
+
+bootdir
+	/$objtype/bin/paqfs
+	/$objtype/bin/auth/factotum
+	bootfs.paq
+	boot

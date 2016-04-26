@@ -1,0 +1,11 @@
+#!/bin/rc
+# 9netboot -- terminal booting stub for 9front
+
+fn netboot {
+	bind -b $1 /
+	newkernel=$2
+	echo '9netboot: booting '^$2^' from '^$fs^' in 5 seconds...'
+	sleep 5
+	echo 'booting...'
+	echo 'reboot '^$newkernel >> /dev/reboot
+}
