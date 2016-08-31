@@ -67,6 +67,9 @@ mt=()
 fn main{
 	mp=()
 	echo '9netboot kernel'
+	echo 'netbootfile='^$netbootfile
+	echo 'bootfs='^$fs
+	echo 'bootuser='^$user
 	while(~ $#mp 0){
 		bootargs=tcp
 		nobootprompt=()
@@ -124,7 +127,10 @@ fn main{
 		rootdir=/root
 	must mount -c /srv/boot $rootdir
 
-	netboot $rootdir /386/9pcf
+	if(~ $#netbootfile 0){
+		netbootfile=/386/9pcf
+	}
+	netboot $rootdir $netbootfile
 }
 
 # keyboard and serial console
